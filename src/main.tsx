@@ -3,11 +3,14 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import { AppRoutes } from "./Routes.tsx";
+import { AppProvider } from "./context/AppContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ChakraProvider>
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </AppProvider>
   </ChakraProvider>
 );
