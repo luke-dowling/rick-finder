@@ -1,5 +1,7 @@
 # Rick Finder
 
+![rick finder logo](./public/rick.jpeg)
+
 Welcome to **Rick Finder**! This application allows you to search for characters from the TV show "Rick and Morty." You can easily find detailed information about your favorite characters from the series.
 
 ## Table of Contents
