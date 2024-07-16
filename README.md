@@ -1,4 +1,3 @@
-What should this app be able to do
+# Rick Finder
 
-1. The main page brings you to a random characters
-2. there is also a search bar which will bring you to all characters or character finding
+Building a search application to display rick and morty characters.
