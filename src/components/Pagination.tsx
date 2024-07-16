@@ -2,7 +2,7 @@ import { Box, IconButton } from "@chakra-ui/react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 interface PaginationProps {
-  handleButtonClick: (num: string) => void;
+  handleButtonClick: (link: string) => void;
   info: {
     prev?: string | null;
     next?: string | null;

@@ -9,16 +9,21 @@ import {
 } from "@chakra-ui/react";
 
 interface MainCharacter {
-  character: {
-    name: string | undefined;
-    image: string | undefined;
-    species: string | undefined;
-    status: string | undefined;
-    type: string | undefined;
-  };
+  character:
+    | {
+        name: string | undefined;
+        image: string | undefined;
+        species: string | undefined;
+        status: string | undefined;
+        type: string | undefined;
+      }
+    | undefined;
 }
 
 const MainCharacter = ({ character }: MainCharacter) => {
+  if (character === undefined) {
+    return null;
+  }
   const { name, image, species, status, type } = character;
   return (
     <Card

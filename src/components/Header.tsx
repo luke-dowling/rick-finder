@@ -6,6 +6,7 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -18,14 +19,16 @@ const Header = () => {
       alignItems={"center"}
       flexDirection={["column-reverse", "row"]}
     >
-      <Heading
-        as="h1"
-        size={"2xl"}
-        margin={["auto", "4"]}
-        textAlign={["center", "left"]}
-      >
-        Rick & Morty Characters
-      </Heading>
+      <Link to="/">
+        <Heading
+          as="h1"
+          size={"2xl"}
+          margin={["auto", "4"]}
+          textAlign={["center", "left"]}
+        >
+          Rick Finder
+        </Heading>
+      </Link>
       <Spacer />
       <Text display={["none", "block"]} paddingX={2}>
         {colorMode === "light" ? "Light" : "Dark"} Theme
