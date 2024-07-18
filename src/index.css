@@ -3,3 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.header {
+  height: 160px;
+}
+
+.main {
+  height: calc(100vh - 160px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
