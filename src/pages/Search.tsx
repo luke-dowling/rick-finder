@@ -1,10 +1,9 @@
+import { useEffect } from "react";
 import { Grid, Text } from "@chakra-ui/react";
-import { useAppContext } from "../context/AppContext";
 
+import { useAppContext } from "../context/AppContext";
 import Character from "../components/Character";
 import Pagination from "../components/Pagination";
-import { SearchForm } from "../components/SearchForm";
-import { useEffect } from "react";
 
 export const Search = () => {
   const {
@@ -30,7 +29,6 @@ export const Search = () => {
 
   return (
     <>
-      <SearchForm />
       <Grid
         templateColumns={"repeat(auto-fit, minmax(200px, 1fr))"}
         gap={3}
@@ -39,8 +37,17 @@ export const Search = () => {
       >
         {!loading ? (
           searchResults.length > 0 &&
-          searchResults.map(({ id, name, image }) => {
-            return <Character key={id} name={name} image={image} />;
+          searchResults.map(({ id, name, image, species, status, type }) => {
+            return (
+              <Character
+                key={id}
+                name={name}
+                image={image}
+                species={species}
+                status={status}
+                type={type}
+              />
+            );
           })
         ) : (
           <Text>Loading...</Text>
