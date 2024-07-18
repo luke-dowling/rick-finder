@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Grid, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Skeleton } from "@chakra-ui/react";
 
 import { useAppContext } from "../context/AppContext";
-import Character from "../components/Character";
 import Pagination from "../components/Pagination";
+import { CharacterCard } from "../components/CharacterCard";
 
 export const Search = () => {
   const {
@@ -30,27 +30,34 @@ export const Search = () => {
   return (
     <>
       <Grid
-        templateColumns={"repeat(auto-fit, minmax(200px, 1fr))"}
-        gap={3}
+        templateColumns={"repeat(auto-fill, minmax(200px, 1fr))"}
+        gap={[2, 2, 4]}
         marginX={"auto"}
         maxWidth={1200}
+        mt={[2, 4, 6]}
       >
         {!loading ? (
           searchResults.length > 0 &&
-          searchResults.map(({ id, name, image, species, status, type }) => {
+          searchResults.map(({ id, name, image, species, status }) => {
             return (
-              <Character
-                key={id}
-                name={name}
-                image={image}
-                species={species}
-                status={status}
-                type={type}
-              />
+              <GridItem key={id} h={"max-content"} py={[1, 0]}>
+                <CharacterCard
+                  name={name}
+                  image={image}
+                  species={species}
+                  status={status}
+                  card={{ h: [320] }}
+                  cardHeader={{
+                    py: [2],
+                    heading: { size: ["lg"], w: [195] },
+                  }}
+                  cardBody={{ image: { w: [120], h: [120] } }}
+                />
+              </GridItem>
             );
           })
         ) : (
-          <Text>Loading...</Text>
+          <Skeleton />
         )}
       </Grid>
       <Pagination handleButtonClick={handleButtonClick} info={paginationInfo} />

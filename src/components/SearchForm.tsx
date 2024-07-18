@@ -1,7 +1,8 @@
-import { Input, Button } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { FormEvent, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
+import { SearchIcon } from "@chakra-ui/icons";
 
 export const SearchForm = () => {
   const { updateSearchResults, setLoading, search, updateSearch, setError } =
@@ -27,17 +28,19 @@ export const SearchForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input
-        borderRadius={20}
-        my={[2, 5]}
-        type="text"
-        ref={searchInputRef}
-        defaultValue={search.name}
-        placeholder="Search a character from Rick & Morty..."
-      />
-      <Button type="submit" display={"none"}>
-        Search
-      </Button>
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          children={<SearchIcon color="gray.400" />}
+        />
+        <Input
+          borderRadius={20}
+          type="text"
+          ref={searchInputRef}
+          defaultValue={search.name}
+          placeholder="Search a character from Rick & Morty..."
+        />
+      </InputGroup>
     </form>
   );
 };

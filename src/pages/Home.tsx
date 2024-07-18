@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Box, Skeleton, SkeletonCircle } from "@chakra-ui/react";
+import { Box, Button, Skeleton } from "@chakra-ui/react";
 import { useAppContext } from "../context/AppContext.tsx";
 import { getRandomCharacter } from "../api/apiRequests.ts";
 
-import MainCharacter from "../components/MainCharacter.tsx";
+import { CharacterCard } from "../components/CharacterCard.tsx";
+import { RepeatIcon } from "@chakra-ui/icons";
 
 interface Character {
   id: number | undefined;
@@ -37,14 +38,28 @@ export const Home = () => {
   return (
     <Box className="main">
       {!loading ? (
-        <MainCharacter
-          character={character}
-          generateRandomCharacter={generateRandomCharacter}
-        />
+        <Box maxW={325} mx={["auto"]} position={"relative"} p={0} w={"auto"}>
+          <Box position={"absolute"} top={7} right={3} zIndex={10}>
+            <Button
+              size={["xs"]}
+              type="button"
+              onClick={() => generateRandomCharacter()}
+            >
+              <RepeatIcon />
+            </Button>
+          </Box>
+          <CharacterCard
+            name={character?.name}
+            image={character?.image}
+            species={character?.species}
+            status={character?.status}
+            card={{ h: [500] }}
+            cardHeader={{ py: [4], heading: { size: ["xl"], w: [225] } }}
+            cardBody={{ image: { w: [60], h: [60] } }}
+          />
+        </Box>
       ) : (
-        <Skeleton mx={["auto"]} w={275} h={425}>
-          <SkeletonCircle size={"lg"} />
-        </Skeleton>
+        <Skeleton mx={["auto"]} w={275} h={500}></Skeleton>
       )}
     </Box>
   );
