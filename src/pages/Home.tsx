@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Skeleton, SkeletonCircle } from "@chakra-ui/react";
 import { useAppContext } from "../context/AppContext.tsx";
 import { getRandomCharacter } from "../api/apiRequests.ts";
 
 import MainCharacter from "../components/MainCharacter.tsx";
-import { SearchForm } from "../components/SearchForm.tsx";
 
 interface Character {
   id: number | undefined;
@@ -36,19 +35,17 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
-      <SearchForm />
-
-      <Heading>Randomly Generated Example:</Heading>
+    <Box className="main">
       {!loading ? (
-        <MainCharacter character={character} />
+        <MainCharacter
+          character={character}
+          generateRandomCharacter={generateRandomCharacter}
+        />
       ) : (
-        <Text>Loading...</Text>
+        <Skeleton mx={["auto"]} w={275} h={425}>
+          <SkeletonCircle size={"lg"} />
+        </Skeleton>
       )}
-
-      <Button type="button" onClick={() => generateRandomCharacter()}>
-        Randomize
-      </Button>
-    </>
+    </Box>
   );
 };
