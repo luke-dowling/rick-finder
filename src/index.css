@@ -11,7 +11,23 @@
 .main {
   height: calc(100vh - 160px);
 
+  max-height: 600px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  overflow: scroll;
+}
+
+@media (min-height: 760px) {
+  .main {
+    overflow-y: hidden;
+  }
+}
+
+@media (min-width: 600px) {
+  .main {
+    overflow-x: hidden;
+  }
 }
