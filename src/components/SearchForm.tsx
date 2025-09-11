@@ -1,12 +1,12 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { FormEvent, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
-import { SearchIcon } from "@chakra-ui/icons";
+import { FaSearch } from "react-icons/fa";
 
 export const SearchForm = () => {
   const { updateSearchResults, setLoading, search, updateSearch, setError } =
     useAppContext()!;
+
   const navigate = useNavigate();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -27,20 +27,19 @@ export const SearchForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputGroup>
-        <InputLeftElement
-          pointerEvents="none"
-          children={<SearchIcon color="gray.400" />}
-        />
-        <Input
-          borderRadius={20}
+    <form onSubmit={handleSubmit} className="px-2 py-7 sticky top-10">
+      <div className="search flex">
+        <input
+          className="w-full border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl"
           type="text"
           ref={searchInputRef}
           defaultValue={search.name}
-          placeholder="Search a character from Rick & Morty..."
+          placeholder="Search character"
         />
-      </InputGroup>
+        <button className="bg-sky-200 rounded-e-2xl text-sm px-2.5">
+          <FaSearch />
+        </button>
+      </div>
     </form>
   );
 };

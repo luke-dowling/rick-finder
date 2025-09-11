@@ -1,9 +1,11 @@
 import { useEffect } from "react";
-import { Grid, GridItem, Skeleton } from "@chakra-ui/react";
 
 import { useAppContext } from "../context/AppContext";
 import Pagination from "../components/Pagination";
 import { CharacterCard } from "../components/CharacterCard";
+import { Layout } from "../components/Layout";
+
+import Header from "../components/Header";
 
 export const Search = () => {
   const {
@@ -28,39 +30,33 @@ export const Search = () => {
   };
 
   return (
-    <>
-      <Grid
-        templateColumns={"repeat(auto-fill, minmax(200px, 1fr))"}
-        gap={[2, 2, 4]}
-        marginX={"auto"}
-        maxWidth={1200}
-        mt={[2, 4, 6]}
-      >
+    <Layout transparent={true}>
+      <Header />
+      <div className="grid mx-auto max-width-1200 m-2">
         {!loading ? (
           searchResults.length > 0 &&
           searchResults.map(({ id, name, image, species, status }) => {
             return (
-              <GridItem key={id} h={"max-content"} py={[1, 0]}>
+              <div key={id} className="my-4">
                 <CharacterCard
                   name={name}
                   image={image}
                   species={species}
                   status={status}
-                  card={{ h: [320] }}
-                  cardHeader={{
-                    py: [2],
-                    heading: { size: ["lg"], w: [195] },
-                  }}
-                  cardBody={{ image: { w: [120], h: [120] } }}
                 />
-              </GridItem>
+              </div>
             );
           })
         ) : (
-          <Skeleton />
+          <div />
         )}
-      </Grid>
-      <Pagination handleButtonClick={handleButtonClick} info={paginationInfo} />
-    </>
+      </div>
+      {searchResults.length > 10 && (
+        <Pagination
+          handleButtonClick={handleButtonClick}
+          info={paginationInfo}
+        />
+      )}
+    </Layout>
   );
 };

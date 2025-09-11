@@ -56,7 +56,7 @@ export const AppProvider = ({ children }: AppContextProps) => {
   };
 
   const updateChosenCharacter = (newCharacter: Character) => {
-    setCharacter(() => newCharacter);
+    setCharacter(newCharacter);
   };
 
   const updateSearchResults = async (filters: string) => {
