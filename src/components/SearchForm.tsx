@@ -31,13 +31,13 @@ export const SearchForm = () => {
     <form onSubmit={handleSubmit} className="px-4 py-7 sticky top-10 w-full">
       <div className="search flex justify-center">
         <input
-          className="w-full max-w-[600px] px-3 border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl outline-0"
+          className="w-full max-w-[600px] px-3 border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl outline-0 lg:text-xl"
           type="text"
           ref={searchInputRef}
           defaultValue={search.name}
           placeholder="Search character"
         />
-        <button className="bg-sky-900 rounded-e-2xl text-md px-4">
+        <button className="bg-sky-900 rounded-e-2xl text-md px-4 lg:text-lg">
           <IconContext.Provider value={{ color: "white" }}>
             <FaSearch />
           </IconContext.Provider>
