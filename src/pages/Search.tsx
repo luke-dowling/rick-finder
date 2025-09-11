@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { useAppContext } from "../context/AppContext";
 import Pagination from "../components/Pagination";
@@ -16,12 +16,17 @@ export const Search = () => {
     setLoading,
     search,
   } = useAppContext()!;
+  const searchResRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     if (search.name === "") {
       updateSearchResults("");
     }
-  }, []);
+
+    searchResRef.current?.scrollIntoView({
+      block: "end",
+    });
+  }, [searchResults]);
 
   const handleButtonClick = (link: string) => {
     setLoading(true);
@@ -33,6 +38,7 @@ export const Search = () => {
     <Layout transparent={true}>
       <Header />
       <div className="grid mx-auto max-width-1200 m-2">
+        {!loading && <p ref={searchResRef}>{searchResults.length}</p>}
         {!loading ? (
           searchResults.length > 0 &&
           searchResults.map(({ id, name, image, species, status }) => {
@@ -51,12 +57,8 @@ export const Search = () => {
           <div />
         )}
       </div>
-      {searchResults.length > 10 && (
-        <Pagination
-          handleButtonClick={handleButtonClick}
-          info={paginationInfo}
-        />
-      )}
+
+      <Pagination handleButtonClick={handleButtonClick} info={paginationInfo} />
     </Layout>
   );
 };
