@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { FaSearch } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 export const SearchForm = () => {
   const { updateSearchResults, setLoading, search, updateSearch, setError } =
@@ -27,17 +28,19 @@ export const SearchForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit} className="px-2 py-7 sticky top-10">
-      <div className="search flex">
+    <form onSubmit={handleSubmit} className="px-4 py-7 sticky top-10 w-full">
+      <div className="search flex justify-center">
         <input
-          className="w-full border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl"
+          className="w-full max-w-[600px] px-3 border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl outline-0"
           type="text"
           ref={searchInputRef}
           defaultValue={search.name}
           placeholder="Search character"
         />
-        <button className="bg-sky-200 rounded-e-2xl text-sm px-2.5">
-          <FaSearch />
+        <button className="bg-sky-900 rounded-e-2xl text-md px-4">
+          <IconContext.Provider value={{ color: "white" }}>
+            <FaSearch />
+          </IconContext.Provider>
         </button>
       </div>
     </form>
