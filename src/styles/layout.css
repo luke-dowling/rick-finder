@@ -1,0 +1,20 @@
+.layout {
+  background-image: url("/RickandMortyBG.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.layout-t {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.738);
+  overflow-y: auto;
+}

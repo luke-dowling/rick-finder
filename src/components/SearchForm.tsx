@@ -1,12 +1,13 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { FormEvent, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
-import { SearchIcon } from "@chakra-ui/icons";
+import { FaSearch } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 export const SearchForm = () => {
   const { updateSearchResults, setLoading, search, updateSearch, setError } =
     useAppContext()!;
+
   const navigate = useNavigate();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -27,20 +28,21 @@ export const SearchForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputGroup>
-        <InputLeftElement
-          pointerEvents="none"
-          children={<SearchIcon color="gray.400" />}
-        />
-        <Input
-          borderRadius={20}
+    <form onSubmit={handleSubmit} className="px-4 py-7 sticky top-10 w-full">
+      <div className="search flex justify-center">
+        <input
+          className="w-full max-w-[600px] px-3 border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl outline-0 lg:text-xl"
           type="text"
           ref={searchInputRef}
           defaultValue={search.name}
-          placeholder="Search a character from Rick & Morty..."
+          placeholder="Search character"
         />
-      </InputGroup>
+        <button className="bg-sky-900 rounded-e-2xl text-md px-4 lg:text-lg">
+          <IconContext.Provider value={{ color: "white" }}>
+            <FaSearch />
+          </IconContext.Provider>
+        </button>
+      </div>
     </form>
   );
 };

@@ -1,4 +1,3 @@
-import { Box, IconButton } from "@chakra-ui/react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 interface PaginationProps {
@@ -11,30 +10,28 @@ interface PaginationProps {
 
 const Pagination = ({ handleButtonClick, info }: PaginationProps) => {
   return (
-    <Box mt={6} alignSelf={"center"}>
-      <IconButton
+    <div className="flex justify-center items-center gap-5">
+      <button
+        className="rounded-full w-20 h-20 bg-sky-50 flex justify-center items-center text-2xl"
         aria-label="Button for previous page"
-        m={4}
-        p={4}
-        fontSize="20px"
         disabled={info.prev === null}
         onClick={() => {
           if (info.prev) handleButtonClick(info.prev);
         }}
-        icon={<FaArrowLeft />}
-      />
-      <IconButton
+      >
+        <FaArrowLeft />
+      </button>
+      <button
+        className="rounded-full w-20 h-20 bg-sky-50 flex justify-center items-center text-2xl"
         aria-label="Button for next page"
-        m={4}
-        p={4}
-        fontSize="20px"
         disabled={info.next === null}
         onClick={() => {
           if (info.next) handleButtonClick(info.next);
         }}
-        icon={<FaArrowRight />}
-      />
-    </Box>
+      >
+        <FaArrowRight />
+      </button>
+    </div>
   );
 };
 
