@@ -1,21 +1,9 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { getFilteredCharacters } from "../api/apiRequests";
+import type { Search, Character } from "../types";
 
 interface AppContextProps {
   children: ReactNode;
-}
-
-interface Character {
-  id: number | undefined;
-  name: string | undefined;
-  image: string | undefined;
-  species: string | undefined;
-  status: string | undefined;
-  type: string | undefined;
-}
-
-interface Search {
-  name: string;
 }
 
 interface AppContext {
@@ -28,6 +16,8 @@ interface AppContext {
   paginationInfo: {
     next?: string | null;
     prev?: string | null;
+    pages?: number | null;
+    count?: number | null;
   };
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -44,6 +34,8 @@ export const AppProvider = ({ children }: AppContextProps) => {
   const [paginationInfo, setPaginationInfo] = useState<{
     next?: string | null;
     prev?: string | null;
+    pages?: number | null;
+    count?: number | null;
   }>({});
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -63,14 +55,25 @@ export const AppProvider = ({ children }: AppContextProps) => {
     const res:
       | {
           results: Character[];
-          info: { next: string | null; prev: string | null };
+          info: {
+            next: string | null;
+            prev: string | null;
+            pages: number | null;
+            count: number | null;
+          };
         }
       | string = await getFilteredCharacters(filters);
     if (typeof res === "string") {
       setError(res);
     } else {
+      console.log(res);
       setSearchResults(res.results);
-      setPaginationInfo({ next: res.info.next, prev: res.info.prev });
+      setPaginationInfo({
+        next: res.info.next,
+        prev: res.info.prev,
+        pages: res.info.pages,
+        count: res.info.count,
+      });
     }
   };
 
