@@ -1,14 +1,39 @@
 @import "tailwindcss";
 @import "./layout.css";
 
+@font-face {
+  font-family: "GetSchwifty";
+  src: url("../assets/fonts/get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
   --font-poppins: Poppins, sans-serif;
+  --font-schwifty: "GetSchwifty", "cursive";
+
+  @keyframes portal-flicker {
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      text-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 20px #22c55e,
+        0 0 40px #16a34a, 0 0 80px #16a34a;
+    }
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+
+  --animate-portal-flicker: portal-flicker 3.5s infinite;
 }
 
 body {
   font-family: var(--font-poppins);
-}
-
-h1 {
-  font-family: cursive;
 }

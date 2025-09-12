@@ -1,13 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-
-interface Character {
-  id: number | undefined;
-  name: string | undefined;
-  image: string | undefined;
-  species: string | undefined;
-  status: string | undefined;
-  type: string | undefined;
-}
+import type { Character } from "../types";
 
 axios.defaults.baseURL = "https://rickandmortyapi.com/api/character";
 
@@ -34,7 +26,12 @@ export const getFilteredCharacters = async (
 ): Promise<
   | {
       results: Character[];
-      info: { next: string | null; prev: string | null };
+      info: {
+        next: string | null;
+        prev: string | null;
+        pages: number | null;
+        count: number | null;
+      };
     }
   | string
 > => {
@@ -42,7 +39,12 @@ export const getFilteredCharacters = async (
     const res: AxiosResponse = await axios.get(filters);
     const data: {
       results: Character[];
-      info: { next: string | null; prev: string | null };
+      info: {
+        next: string | null;
+        prev: string | null;
+        pages: number | null;
+        count: number | null;
+      };
     } = res.data;
     return data;
   } catch (error) {

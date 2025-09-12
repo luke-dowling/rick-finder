@@ -9,10 +9,14 @@ interface PaginationProps {
 }
 
 const Pagination = ({ handleButtonClick, info }: PaginationProps) => {
+  const baseButtonClasses =
+    "w-14 h-14 bg-black text-green-400 flex justify-center items-center text-2xl rounded-full transition transform disabled:opacity-50 disabled:cursor-not-allowed " +
+    "shadow-[0_0_15px_rgba(34,197,94,0.6)] hover:shadow-[0_0_25px_rgba(34,197,94,0.9)] hover:scale-110";
+
   return (
-    <div className="flex justify-center items-center gap-5">
+    <div className="flex justify-between mx-5 mb-4 items-center gap-5">
       <button
-        className="rounded-full w-20 h-20 bg-sky-50 flex justify-center items-center text-2xl"
+        className={baseButtonClasses}
         aria-label="Button for previous page"
         disabled={info.prev === null}
         onClick={() => {
@@ -22,7 +26,7 @@ const Pagination = ({ handleButtonClick, info }: PaginationProps) => {
         <FaArrowLeft />
       </button>
       <button
-        className="rounded-full w-20 h-20 bg-sky-50 flex justify-center items-center text-2xl"
+        className={baseButtonClasses}
         aria-label="Button for next page"
         disabled={info.next === null}
         onClick={() => {

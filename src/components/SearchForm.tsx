@@ -28,17 +28,29 @@ export const SearchForm = () => {
   });
 
   return (
-    <form onSubmit={handleSubmit} className="px-4 py-7 sticky top-10 w-full">
+    <form onSubmit={handleSubmit} className="px-4 py-7 w-full">
       <div className="search flex justify-center">
         <input
-          className="w-full max-w-[600px] px-3 border-1px border-gray-300 bg-sky-50 p-2 rounded-l-2xl outline-0 lg:text-xl"
+          className="w-full max-w-[600px] px-4 py-2 rounded-l-2xl 
+                     bg-black text-green-400 placeholder-green-600 
+                     border border-green-500 
+                     focus:outline-none focus:ring-2 focus:ring-green-400
+                     lg:text-xl"
           type="text"
           ref={searchInputRef}
           defaultValue={search.name}
           placeholder="Search character"
         />
-        <button className="bg-sky-900 rounded-e-2xl text-md px-4 lg:text-lg">
-          <IconContext.Provider value={{ color: "white" }}>
+        <button
+          className="bg-green-500 text-black px-6 rounded-r-2xl
+          border border-green-500 
+                     focus:outline-none focus:ring-2 focus:ring-green-400 
+                     font-bold transition transform
+                     hover:bg-green-400 hover:scale-105 
+                     shadow-[0_0_15px_rgba(34,197,94,0.6)]
+                     hover:shadow-[0_0_25px_rgba(34,197,94,0.9)]"
+        >
+          <IconContext.Provider value={{ color: "black", size: "1.2em" }}>
             <FaSearch />
           </IconContext.Provider>
         </button>
