@@ -1,0 +1,228 @@
+[
+  { "id": 1, "quote": "Wubba Lubba Dub-Dub!", "character": "Rick Sanchez" },
+  {
+    "id": 2,
+    "quote": "Nobody exists on purpose. Nobody belongs anywhere. Everybody’s gonna die. Come watch TV.",
+    "character": "Morty Smith"
+  },
+  { "id": 3, "quote": "Don’t even trip, dawg.", "character": "Rick Sanchez" },
+  { "id": 4, "quote": "Get Schwifty!", "character": "Rick Sanchez" },
+  {
+    "id": 5,
+    "quote": "I turned myself into a pickle, Morty! I’m Pickle Riiiiick!",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 6,
+    "quote": "Morty, you little fool! You really thought you could escape?",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 7,
+    "quote": "What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up half of all time?",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 8,
+    "quote": "I don’t like it here, Rick. I want to go home.",
+    "character": "Morty Smith"
+  },
+  {
+    "id": 9,
+    "quote": "Sometimes science is more art than science, Morty. A lot of people don’t get that.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 10,
+    "quote": "I’m sorry, but your opinion means very little to me.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 11,
+    "quote": "Get your s*** together. Get it all together and put it in a backpack, all your s***, so it’s together.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 12,
+    "quote": "Lick, lick, lick my balls!",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 13,
+    "quote": "Boom! Big reveal: I turned myself into a pickle.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 14,
+    "quote": "Sometimes you have to not give a f***.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 15,
+    "quote": "What about the reality where Hitler cured cancer, Morty? The answer is: don’t think about it.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 16,
+    "quote": "Get in the car, Morty! We’re going on an adventure!",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 17,
+    "quote": "Rick! I don’t like this! It feels wrong!",
+    "character": "Morty Smith"
+  },
+  {
+    "id": 18,
+    "quote": "Summer, you’re not in this story. I’m in this story. You’re just in the background, like a prop.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 19,
+    "quote": "I’m not looking for judgement, just a yes or no. Can you assimilate a giraffe?",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 20,
+    "quote": "To live is to risk it all. Otherwise you’re just an inert chunk of randomly assembled molecules drifting wherever the universe blows you.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 21,
+    "quote": "Morty, you gotta get your s*** together.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 22,
+    "quote": "It’s called carpe diem, Morty. Look it up.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 23,
+    "quote": "Sometimes science is just magic with extra steps.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 24,
+    "quote": "Listen, Morty, I hate to break it to you, but what people call ‘love’ is just a chemical reaction.",
+    "character": "Rick Sanchez"
+  },
+  { "id": 25, "quote": "What up, my glip glops!", "character": "Rick Sanchez" },
+  {
+    "id": 26,
+    "quote": "Morty, I need your help. We gotta go to another dimension and… uh… grab some seeds.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 27,
+    "quote": "That’s planning for failure, Morty. Even dumber than regular planning.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 28,
+    "quote": "I know that new situations can be intimidating. You lookin’ around and it’s all scary and different, but you know… meeting them head-on, charging into them like a bull — that’s how we grow as people.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 29,
+    "quote": "This is the way the news goes.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 30,
+    "quote": "Get out of here, Summer! You don’t belong in this dimension!",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 31,
+    "quote": "What, so everyone’s supposed to sleep every night? That’s retarded.",
+    "character": "Rick Sanchez"
+  },
+  { "id": 32, "quote": "Existence is pain.", "character": "Mr. Meeseeks" },
+  {
+    "id": 33,
+    "quote": "I’m Mr. Meeseeks! Look at me!",
+    "character": "Mr. Meeseeks"
+  },
+  {
+    "id": 34,
+    "quote": "Having a family doesn’t mean you stop being an individual. You know the best thing you can do for people that depend on you? Be honest with them.",
+    "character": "Mr. Meeseeks"
+  },
+  {
+    "id": 35,
+    "quote": "Some people would pay top dollar for that kind of breakthrough.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 36,
+    "quote": "Morty, I’ve done this too many times. You’ve got to learn to let go.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 37,
+    "quote": "Your boos mean nothing. I’ve seen what makes you cheer.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 38,
+    "quote": "I don’t respect therapy because I’m a scientist. I invent, transform, create, and destroy for a living.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 39,
+    "quote": "That’s the difference between you and me, Morty. I never go back to the carpet store.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 40,
+    "quote": "This pickle doesn’t have what it takes to keep living.",
+    "character": "Pickle Rick"
+  },
+  {
+    "id": 41,
+    "quote": "Unity, you’re not making any sense.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 42,
+    "quote": "What’s the point of caring if the universe doesn’t?",
+    "character": "Morty Smith"
+  },
+  {
+    "id": 43,
+    "quote": "I’m sorry, but your opinion means very little to me.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 44,
+    "quote": "Don’t be a baby, Morty. We’re all going to die one day. Come watch TV.",
+    "character": "Rick Sanchez"
+  },
+  { "id": 45, "quote": "My man! How you doin’?", "character": "Birdperson" },
+  {
+    "id": 46,
+    "quote": "Morty, you’re acting like a real Jerry right now.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 47,
+    "quote": "I’m sorry, but I’m not programmed for friendship.",
+    "character": "Gearhead"
+  },
+  {
+    "id": 48,
+    "quote": "Sometimes, Morty, you gotta grab life by the lips and yell into its mouth.",
+    "character": "Rick Sanchez"
+  },
+  {
+    "id": 49,
+    "quote": "Summer, you’ve got to stop being so dramatic.",
+    "character": "Beth Smith"
+  },
+  {
+    "id": 50,
+    "quote": "What up, my glip glops! Let’s get schwifty!",
+    "character": "Rick Sanchez"
+  }
+]
