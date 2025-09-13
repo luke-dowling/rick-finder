@@ -1,92 +1,95 @@
-# Rick Finder
+# 🛸 Rick Finder
+
+**Because Google doesn’t have enough Ricks.**
 
 ![rick finder logo](./public/rick.jpeg)
 
-Welcome to **Rick Finder**! This application allows you to search for characters from the TV show "Rick and Morty." You can easily find detailed information about your favorite characters from the series.
+Welcome to **Rick Finder**, Morty. It’s like Google, but dumber and only for "Rick and Morty" characters. Wanna know if a guy’s alive, dead, or... uh, "Schrödinger’s"? Wanna see what species some weird freak belongs to? Boom—this app’s got you covered.
 
-## Table of Contents
+---
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies](#technologies)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## 🧪 Features
 
-## Features
+- 🔍 **Search** characters by name faster than Rick can portal-gun his way out of a bad date.
+- 📜 **Details, Morty!** Get info like status, species, gender, and origin.
+- 📱 **Responsive UI** (that’s tech talk for "works on your phone while you binge the show").
 
-- Search for characters by name.
-- View detailed information about each character, including their status, species, gender, origin, and more.
-- Responsive and user-friendly interface.
+---
 
-## Installation
+## ⚙️ Installation
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed on your machine:
-
-- [Node.js](https://nodejs.org/en/) (v14 or later)
-- [npm](https://www.npmjs.com/get-npm) (v6 or later)
+- [Bun](https://bun.sh/) (v1+ — faster than a portal gun, Morty)
+- A modern web browser (because yes, Morty, we still need that)
 
 ### Steps
 
-1. **Clone the repository:**
+1. Clone this bad boy:
 
    ```sh
    git clone https://github.com/luke-dowling/rick-finder.git
    cd rick-finder
    ```
 
-2. **Install dependencies:**
+2. Install the science juice (dependencies):
 
    ```sh
-   npm install
+   bun install
    ```
 
-3. **Start the application:**
+3. Fire it up:
 
    ```sh
-   npm run dev
+   bun dev
    ```
 
-   The application will be available at `http://localhost:5173`.
-
-## Usage
-
-1. Open your web browser and navigate to `http://localhost:5173`.
-2. Use the search bar to type in the name of a character from "Rick and Morty."
-3. Browse through the search results and click on a character to view detailed information.
-
-## Technologies
-
-- **React**: A JavaScript library for building user interfaces.
-- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
-- **Axios**: A promise-based HTTP client for the browser and Node.js.
-- **Rick and Morty API**: The application fetches character data from this public API.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/YourFeatureName`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/YourFeatureName`
-5. Create a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-If you have any questions or suggestions, feel free to reach out:
-
-- **GitHub Issues**: [luke-dowling/rick-finder/issues](https://github.com/luke-dowling/rick-finder/issues)
-
-Enjoy finding your favorite Rick and Morty characters!
+   Then head over to `http://localhost:5173` — unless your computer explodes, in which case... not my problem.
 
 ---
 
-> Wubba Lubba Dub Dub!
+## 🕹️ Usage
+
+1. Open the app in your browser.
+2. Use the search bar to type in a name ("Rick," "Morty," or some poor background alien that died in episode 3).
+3. Click a character to get juicy details. Boom. Easy.
+
+---
+
+## 🛠️ Built With
+
+- **React** – Because coding raw HTML is for Jerrys.
+- **TypeScript** – Strong typing so you don’t break stuff (like Morty’s arm that one time).
+- **Axios** – For fetching data without crying.
+- **Rick and Morty API** – The official data source, free and portal-approved.
+
+---
+
+## 🧑‍🚀 Contributing
+
+Think you’re smarter than Rick? Prove it. Fork this repo and add your genius.
+
+1. Fork the repo.
+2. Create your branch: `git checkout -b feature/YourFeatureName`
+3. Commit like a pro: `git commit -m 'Added something less dumb than Morty'`
+4. Push it: `git push origin feature/YourFeatureName`
+5. Open a pull request.
+
+---
+
+## 📜 License
+
+MIT License. Use it however you want, but don’t sue me if your universe collapses.
+
+---
+
+## 📡 Contact
+
+Open an issue on GitHub if you’ve got ideas, bugs, or just wanna complain like Jerry:
+[luke-dowling/rick-finder/issues](https://github.com/luke-dowling/rick-finder/issues)
+
+---
+
+> _"Wubba Lubba Dub Dub!"_ – Rick Sanchez
+
+---

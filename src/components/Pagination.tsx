@@ -14,7 +14,7 @@ const Pagination = ({ handleButtonClick, info }: PaginationProps) => {
     "shadow-[0_0_15px_rgba(34,197,94,0.6)] hover:shadow-[0_0_25px_rgba(34,197,94,0.9)] hover:scale-110";
 
   return (
-    <div className="flex justify-between mx-5 mb-4 items-center gap-5">
+    <div className="container px-4 md:px-0 flex justify-between mx-5 mb-4 items-center gap-5">
       <button
         className={baseButtonClasses}
         aria-label="Button for previous page"

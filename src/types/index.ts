@@ -8,6 +8,9 @@ export interface Character {
   status: string | undefined;
   gender: string | undefined;
   type: string | undefined;
+  origin: {
+    name: string;
+  };
 }
 
 export interface Search {

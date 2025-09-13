@@ -6,11 +6,13 @@ export const NotFound = () => {
   return (
     <Layout>
       <Header />
-      <div className="relative min-h-[70vh] flex flex-col items-center justify-center text-center px-6">
+      <div className="relative min-h-full flex flex-col items-center pt-40 text-center px-6">
         <div className="absolute inset-0 bg-black/60 -z-10"></div>
 
         <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-6">
-          Wubba Lubba Dub-Dub!
+          <span className="relative glitch" data-text={`Wubba Lubba Dub-Dub!`}>
+            Wubba Lubba Dub-Dub!
+          </span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-100 drop-shadow-md max-w-2xl mb-10">

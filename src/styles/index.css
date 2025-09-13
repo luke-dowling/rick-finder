@@ -37,3 +37,60 @@
 body {
   font-family: var(--font-poppins);
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  animation: glitchTop 1.5s infinite linear alternate-reverse;
+  color: #ff00ff;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::after {
+  animation: glitchBottom 2s infinite linear alternate-reverse;
+  color: #00ffff;
+  clip: rect(0, 900px, 0, 0);
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  50% {
+    clip: rect(0, 9999px, 9999px, 0);
+    transform: translate(-5px, -3px);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  50% {
+    clip: rect(0, 9999px, 9999px, 0);
+    transform: translate(3px, 3px);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}

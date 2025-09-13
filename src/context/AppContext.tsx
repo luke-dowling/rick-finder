@@ -65,6 +65,13 @@ export const AppProvider = ({ children }: AppContextProps) => {
       | string = await getFilteredCharacters(filters);
     if (typeof res === "string") {
       setError(res);
+      setSearchResults([]);
+      setPaginationInfo({
+        next: null,
+        prev: null,
+        pages: 0,
+        count: 0,
+      });
     } else {
       console.log(res);
       setSearchResults(res.results);
