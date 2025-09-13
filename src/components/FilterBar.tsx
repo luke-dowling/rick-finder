@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { FaFilter } from "react-icons/fa";
+import { RiResetLeftFill } from "react-icons/ri";
 import { type Search } from "../types";
 
 const statusOptions = ["alive", "dead", "unknown"];
@@ -19,24 +20,25 @@ export const FilterBar = () => {
 
   const [open, setOpen] = useState(false);
 
-  const handleCheckboxChange = (key: keyof Search, value: string) => {
+  const handleRadioChange = (key: keyof Search, value: string) => {
     setLoading(true);
     setError("");
 
-    const currentValues = search[key] ? [...search[key]] : [];
-    const newValues = currentValues.includes(value)
-      ? currentValues.filter((v) => v !== value)
-      : [...currentValues, value];
+    updateSearch({ ...search, [key]: value });
 
-    updateSearch({ ...search, [key]: newValues });
-
-    const query = new URLSearchParams({
-      ...search,
-      [key]: newValues,
-    }).toString();
+    const query = new URLSearchParams({ ...search, [key]: value }).toString();
     updateSearchResults(`?${query}`);
 
     setLoading(false);
+  };
+
+  const resetFilters = () => {
+    updateSearch({
+      ...search,
+      status: "",
+      species: "",
+      gender: "",
+    });
   };
 
   return (
@@ -50,7 +52,7 @@ export const FilterBar = () => {
       </button>
 
       {open && (
-        <div className="mt-4 flex flex-wrap justify-center gap-6">
+        <div className="container mt-4 flex justify-between items-start gap-2 md:justify-center md:gap-10">
           <div>
             <p className="text-green-400 font-semibold mb-1">Status</p>
             {statusOptions.map((status) => (
@@ -59,9 +61,11 @@ export const FilterBar = () => {
                 className="flex items-center gap-2 text-green-300"
               >
                 <input
-                  type="checkbox"
-                  checked={search.status?.includes(status) || false}
-                  onChange={() => handleCheckboxChange("status", status)}
+                  type="radio"
+                  name="status"
+                  value={status}
+                  checked={search.status === status}
+                  onChange={() => handleRadioChange("status", status)}
                   className="accent-green-400"
                 />
                 {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -77,9 +81,11 @@ export const FilterBar = () => {
                 className="flex items-center gap-2 text-green-300"
               >
                 <input
-                  type="checkbox"
-                  checked={search.species?.includes(species) || false}
-                  onChange={() => handleCheckboxChange("species", species)}
+                  type="radio"
+                  name="species"
+                  value={species}
+                  checked={search.species === species}
+                  onChange={() => handleRadioChange("species", species)}
                   className="accent-green-400"
                 />
                 {species.charAt(0).toUpperCase() + species.slice(1)}
@@ -95,15 +101,24 @@ export const FilterBar = () => {
                 className="flex items-center gap-2 text-green-300"
               >
                 <input
-                  type="checkbox"
-                  checked={search.gender?.includes(gender) || false}
-                  onChange={() => handleCheckboxChange("gender", gender)}
+                  type="radio"
+                  name="gender"
+                  value={gender}
+                  checked={search.gender === gender}
+                  onChange={() => handleRadioChange("gender", gender)}
                   className="accent-green-400"
                 />
                 {gender.charAt(0).toUpperCase() + gender.slice(1)}
               </label>
             ))}
           </div>
+
+          <button
+            onClick={resetFilters}
+            className="px-2 py-1 rounded-lg font-bold text-black bg-green-400 hover:bg-green-300 shadow-md"
+          >
+            <RiResetLeftFill />
+          </button>
         </div>
       )}
 

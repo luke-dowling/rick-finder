@@ -24,14 +24,17 @@ export const SearchForm = () => {
   };
 
   useEffect(() => {
-    searchInputRef.current!.focus();
-  });
+    searchInputRef!.current?.focus();
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="px-4 py-7 w-full">
+    <form
+      onSubmit={handleSubmit}
+      className="container px-4 py-7 w-full md:px-0"
+    >
       <div className="search flex justify-center">
         <input
-          className="w-full max-w-[600px] px-4 py-2 rounded-l-2xl 
+          className="w-full px-4 py-2 rounded-l-2xl 
                      bg-black text-green-400 placeholder-green-600 
                      border border-green-500 
                      focus:outline-none focus:ring-2 focus:ring-green-400
