@@ -1,13 +1,11 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { AppRoutes } from "./Routes.tsx";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes.ts";
 import { AppProvider } from "./context/AppContext.tsx";
 import "./styles/index.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root")!).render(
   <AppProvider>
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </AppProvider>
 );
