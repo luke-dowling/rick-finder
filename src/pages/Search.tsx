@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLoaderData } from "react-router-dom";
 
 import { useAppContext } from "../context/AppContext";
 import Pagination from "../components/Pagination";
@@ -10,32 +11,21 @@ import { SearchForm } from "../components/SearchForm";
 import { FilterBar } from "../components/FilterBar";
 
 export const Search = () => {
-  const {
-    searchResults,
-    paginationInfo,
-    updateSearchResults,
-    loading,
-    setLoading,
-    search,
-    error,
-  } = useAppContext()!;
+  const loaderData = useLoaderData() as { results: any[]; info: any } | string;
+  const { loading, error, setError } = useAppContext()!;
   const searchResRef = useRef<HTMLParagraphElement | null>(null);
 
-  useEffect(() => {
-    if (search.name.trim() === "") {
-      updateSearchResults("");
-    }
+  const isError = typeof loaderData === "string";
+  const searchResults = isError ? [] : loaderData.results;
+  const info = isError ? {} : loaderData.info;
 
+  useEffect(() => {
     searchResRef.current?.scrollIntoView({
       block: "end",
     });
-  }, [search]);
-
-  const handleButtonClick = (link: string) => {
-    setLoading(true);
-    updateSearchResults(link);
-    setLoading(false);
-  };
+    if (isError) setError(loaderData as string);
+    else setError("");
+  }, [loaderData]);
 
   return (
     <Layout transparent={true}>
@@ -82,8 +72,7 @@ export const Search = () => {
           <div />
         )}
       </div>
-
-      <Pagination handleButtonClick={handleButtonClick} info={paginationInfo} />
+      <Pagination info={info} />
     </Layout>
   );
 };

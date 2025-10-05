@@ -3,42 +3,39 @@ import { useAppContext } from "../context/AppContext";
 import { FaFilter } from "react-icons/fa";
 import { RiResetLeftFill } from "react-icons/ri";
 import { type Search } from "../types";
+import { useNavigate } from "react-router-dom";
 
 const statusOptions = ["alive", "dead", "unknown"];
 const speciesOptions = ["human", "alien", "robot"];
 const genderOptions = ["male", "female", "genderless", "unknown"];
 
 export const FilterBar = () => {
-  const {
-    search,
-    updateSearch,
-    updateSearchResults,
-    setLoading,
-    setError,
-    paginationInfo,
-  } = useAppContext()!;
-
+  const { search, updateSearch, setLoading, setError, paginationInfo } =
+    useAppContext()!;
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleRadioChange = (key: keyof Search, value: string) => {
     setLoading(true);
     setError("");
+    const newSearch = { ...search, [key]: value };
+    updateSearch(newSearch);
 
-    updateSearch({ ...search, [key]: value });
-
-    const query = new URLSearchParams({ ...search, [key]: value }).toString();
-    updateSearchResults(`?${query}`);
-
+    const query = new URLSearchParams(newSearch).toString();
+    navigate(`/search?${query}`);
     setLoading(false);
   };
 
   const resetFilters = () => {
-    updateSearch({
+    const resetSearch = {
       ...search,
       status: "",
       species: "",
       gender: "",
-    });
+    };
+    updateSearch(resetSearch);
+    const query = new URLSearchParams(resetSearch).toString();
+    navigate(`/search?${query}`);
   };
 
   return (

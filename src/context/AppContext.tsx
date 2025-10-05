@@ -73,7 +73,6 @@ export const AppProvider = ({ children }: AppContextProps) => {
         count: 0,
       });
     } else {
-      console.log(res);
       setSearchResults(res.results);
       setPaginationInfo({
         next: res.info.next,
