@@ -1,37 +1,51 @@
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 
 interface PaginationProps {
-  handleButtonClick: (link: string) => void;
   info: {
-    prev?: string | null;
     next?: string | null;
+    prev?: string | null;
+    pages?: number | null;
+    count?: number | null;
   };
 }
 
-const Pagination = ({ handleButtonClick, info }: PaginationProps) => {
-  const baseButtonClasses =
-    "w-14 h-14 bg-black text-green-400 flex justify-center items-center text-2xl rounded-full transition transform disabled:opacity-50 disabled:cursor-not-allowed " +
-    "shadow-[0_0_15px_rgba(34,197,94,0.6)] hover:shadow-[0_0_25px_rgba(34,197,94,0.9)] hover:scale-110";
+const Pagination = ({ info }: PaginationProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { setLoading } = useAppContext()!;
+
+  const handlePageChange = (link: string | null) => {
+    if (!link) return;
+    setLoading(true);
+    // link is a full URL, extract only the query string
+    const queryString = link.includes("?")
+      ? link.substring(link.indexOf("?"))
+      : "";
+    navigate(`/search${queryString}`);
+    setLoading(false);
+  };
 
   return (
     <div className="container px-4 md:px-0 flex justify-between mx-5 mb-4 items-center gap-5">
       <button
-        className={baseButtonClasses}
+        className="px-4 py-2 rounded bg-green-400 text-black font-bold disabled:opacity-50"
+        disabled={!info.prev}
+        onClick={() => handlePageChange(info.prev || null)}
         aria-label="Button for previous page"
-        disabled={info.prev === null}
-        onClick={() => {
-          if (info.prev) handleButtonClick(info.prev);
-        }}
       >
         <FaArrowLeft />
       </button>
+      <span className="text-green-400 font-semibold">
+        Page {location.search.match(/page=(\d+)/)?.[1] || 1} of{" "}
+        {info.pages || 1}
+      </span>
       <button
-        className={baseButtonClasses}
+        className="px-4 py-2 rounded bg-green-400 text-black font-bold disabled:opacity-50"
+        disabled={!info.next}
+        onClick={() => handlePageChange(info.next || null)}
         aria-label="Button for next page"
-        disabled={info.next === null}
-        onClick={() => {
-          if (info.next) handleButtonClick(info.next);
-        }}
       >
         <FaArrowRight />
       </button>

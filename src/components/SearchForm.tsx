@@ -1,31 +1,39 @@
-import { FormEvent, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { FaSearch } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 export const SearchForm = () => {
-  const { updateSearchResults, setLoading, search, updateSearch, setError } =
-    useAppContext()!;
-
+  const { setLoading, updateSearch, setError } = useAppContext()!;
   const navigate = useNavigate();
+  const location = useLocation();
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const params = new URLSearchParams(location.search);
+  const urlName = params.get("name") || "";
+
+  const [inputValue, setInputValue] = useState(urlName);
+
+  useEffect(() => {
+    searchInputRef.current?.focus();
+    setInputValue(urlName);
+    updateSearch({ name: urlName });
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (searchInputRef.current!.value === "") return;
+    if (inputValue.trim() === "") return;
     setLoading(true);
     setError("");
-
-    updateSearch({ name: searchInputRef.current!.value });
-    updateSearchResults(`?name=${searchInputRef.current!.value}`);
+    updateSearch({ name: inputValue });
     setLoading(false);
-    navigate("/search");
+    navigate(`/search?name=${encodeURIComponent(inputValue)}`);
   };
 
-  useEffect(() => {
-    searchInputRef!.current?.focus();
-  }, []);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
 
   return (
     <form
@@ -41,7 +49,8 @@ export const SearchForm = () => {
                      lg:text-xl"
           type="text"
           ref={searchInputRef}
-          defaultValue={search.name}
+          value={inputValue}
+          onChange={handleInputChange}
           placeholder="Search character"
         />
         <button
